@@ -44,12 +44,14 @@ const Home = () => {
     <>
       <div className="flex flex-row gap-4 justify-center flex-wrap p-4">
         <PieChartCard
-          chartTitle="Appoinment"
+          chartTitle="Appointments"
+          chartInnerTitle="Today"
           chartData={chartData1}
           chartConfig={chartConfig1}
         />
         <PieChartCard
-          chartTitle="Ward Status"
+          chartTitle="Ward Staff"
+          chartInnerTitle="All"
           chartData={chartData2}
           chartConfig={chartConfig2}
         />

@@ -8,12 +8,14 @@ import { PieChart, Pie, Label } from "recharts";
 
 type PieChartCardProps = {
   chartTitle?: string;
+  chartInnerTitle?: string;
   chartData: { status: string; visitors: number; fill: string }[];
   chartConfig: ChartConfig;
 };
 
 const PieChartCard: React.FC<PieChartCardProps> = ({
   chartTitle,
+  chartInnerTitle,
   chartData,
   chartConfig,
 }) => {
@@ -40,7 +42,7 @@ const PieChartCard: React.FC<PieChartCardProps> = ({
                 data={chartData}
                 dataKey="visitors"
                 nameKey="status"
-                innerRadius={60}
+                innerRadius={55}
                 startAngle={270}
                 endAngle={-90}
               >
@@ -59,12 +61,12 @@ const PieChartCard: React.FC<PieChartCardProps> = ({
                             y={(viewBox.cy || 0) - 12} // Move up
                             className="fill-muted-foreground"
                           >
-                            {chartTitle}
+                            {chartInnerTitle}
                           </tspan>
                           <tspan
                             x={viewBox.cx}
                             y={(viewBox.cy || 0) + 12} // Move down
-                            className="fill-foreground text-3xl font-bold"
+                            className="fill-foreground text-3xl font-semibold"
                           >
                             {totalVisitors.toLocaleString()}
                           </tspan>
@@ -75,8 +77,24 @@ const PieChartCard: React.FC<PieChartCardProps> = ({
                 />
               </Pie>
               <ChartLegend
-                content={<ChartLegendContent nameKey="status" />}
-                className="flex flex-col items-start gap-2 mt-2"
+                content={({ payload }) => (
+                  <div className="flex flex-col items-start gap-2 mt-2">
+                    {payload?.map((entry, index) => (
+                      <div
+                        key={`item-${index}`}
+                        className="flex items-center gap-2"
+                      >
+                        <div
+                          className="w-3 h-3 rounded-sm"
+                          style={{ backgroundColor: entry.color }}
+                        />
+                        <span className="text-sm text-muted-foreground">
+                          {entry.value}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                )}
               />
             </PieChart>
           </ChartContainer>
