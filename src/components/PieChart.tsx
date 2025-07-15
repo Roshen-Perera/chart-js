@@ -78,11 +78,11 @@ const PieChartCard: React.FC<PieChartCardProps> = ({
               </Pie>
               <ChartLegend
                 content={({ payload }) => (
-                  <div className="flex flex-col items-start gap-2 mt-2">
+                  <div className="flex flex-col items-start gap-2 mt-2 ">
                     {payload?.map((entry, index) => (
                       <div
                         key={`item-${index}`}
-                        className="flex items-center gap-2"
+                        className="flex items-center gap-2 font-sm"
                       >
                         <div
                           className="w-3 h-3 rounded-sm"

@@ -4,8 +4,8 @@ import React from 'react'
 
 const Home = () => {
   const chartData1 = [
-    { status: "checked", visitors: 80, fill: "#2F0D68" },
-    { status: "all", visitors: 20, fill: "#cfcfcfff" },
+    { status: "Checked", visitors: 80, fill: "#2F0D68" },
+    { status: "All", visitors: 20, fill: "#cfcfcfff" },
   ];
   const chartConfig1 = {
     visitors: {
@@ -24,8 +24,8 @@ const Home = () => {
   
 
   const chartData2 = [
-    { status: "chrome", visitors: 80, fill: "var(--color-chrome)" },
-    { status: "safari", visitors: 20, fill: "var(--color-safari)" }
+    { status: "Reserved", visitors: 80, fill: "var(--color-chrome)" },
+    { status: "Not Reserved", visitors: 20, fill: "var(--color-safari)" }
   ];
   const chartConfig2 = {
     visitors: {
