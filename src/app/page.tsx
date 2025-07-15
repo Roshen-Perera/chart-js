@@ -4,26 +4,28 @@ import React from 'react'
 
 const Home = () => {
   const chartData1 = [
-    { browser: "chrome", visitors: 80, fill: "var(--color-chrome)" },
-    { browser: "safari", visitors: 20, fill: "var(--color-safari)" }
+    { status: "checked", visitors: 80, fill: "#2F0D68" },
+    { status: "all", visitors: 20, fill: "#cfcfcfff" },
   ];
   const chartConfig1 = {
     visitors: {
-      label: "Visitors",
+      label: "All",
     },
-    chrome: {
-      label: "Chrome",
+    checked: {
+      label: "Checked",
       color: "#2F0D68",
     },
-    safari: {
-      label: "Safari",
+    all: {
+      label: "All",
       color: "#cfcfcfff",
     },
   } satisfies ChartConfig;
 
+  
+
   const chartData2 = [
-    { browser: "chrome", visitors: 80, fill: "var(--color-chrome)" },
-    { browser: "safari", visitors: 20, fill: "var(--color-safari)" }
+    { status: "chrome", visitors: 80, fill: "var(--color-chrome)" },
+    { status: "safari", visitors: 20, fill: "var(--color-safari)" }
   ];
   const chartConfig2 = {
     visitors: {
@@ -40,10 +42,17 @@ const Home = () => {
   } satisfies ChartConfig;
   return (
     <>
-      <div className="flex flex-row gap-4 justify-center flex-wrap">
-
-        <PieChartCard chartData={chartData1} chartConfig={chartConfig1} />
-        <PieChartCard chartData={chartData2} chartConfig={chartConfig2} />
+      <div className="flex flex-row gap-4 justify-center flex-wrap p-4">
+        <PieChartCard
+          chartTitle="Appoinment"
+          chartData={chartData1}
+          chartConfig={chartConfig1}
+        />
+        <PieChartCard
+          chartTitle="Ward Status"
+          chartData={chartData2}
+          chartConfig={chartConfig2}
+        />
       </div>
     </>
   );
