@@ -102,6 +102,7 @@ const Home = () => {
       </div>
       <div className="flex flex-col items-center">
         <ChartBarDefault chartTitle="Heart Rate" />
+        
       </div>
     </>
   );

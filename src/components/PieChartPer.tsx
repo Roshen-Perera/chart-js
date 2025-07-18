@@ -25,7 +25,7 @@ const PieChartCard: React.FC<PieChartCardProps> = ({
   }, [chartData]);
   return (
     <>
-      <Card className="flex flex-col w-[600px]">
+      <Card className="flex flex-col w-[300px]">
         <CardHeader className="flex justify-between items-center pt-1">
           <CardTitle>{chartTitle}</CardTitle>
           <div
@@ -36,57 +36,54 @@ const PieChartCard: React.FC<PieChartCardProps> = ({
             <div>+ 6 %</div>
           </div>
         </CardHeader>
-        <CardContent className="flex-1">
+        <CardContent>
           <ChartContainer
             config={chartConfig}
             className="-mt-10 aspect-square max-h-[250px]"
           >
-            <>
-              <PieChart>
-                <ChartTooltip
-                  cursor={false}
-                  content={<ChartTooltipContent hideLabel />}
-                />
-                <Pie
-                  data={chartData}
-                  dataKey="visitors"
-                  nameKey="status"
-                  innerRadius={55}
-                  startAngle={0}
-                  endAngle={-360}
-                >
-                  <Label
-                    content={({ viewBox }) => {
-                      if (viewBox && "cx" in viewBox && "cy" in viewBox) {
-                        return (
-                          <text
+            <PieChart>
+              <ChartTooltip
+                cursor={false}
+                content={<ChartTooltipContent hideLabel />}
+              />
+              <Pie
+                data={chartData}
+                dataKey="visitors"
+                nameKey="status"
+                innerRadius={55}
+                startAngle={0}
+                endAngle={-360}
+              >
+                <Label
+                  content={({ viewBox }) => {
+                    if (viewBox && "cx" in viewBox && "cy" in viewBox) {
+                      return (
+                        <text
+                          x={viewBox.cx}
+                          y={viewBox.cy}
+                          textAnchor="middle"
+                          dominantBaseline="middle"
+                        >
+                          <tspan
                             x={viewBox.cx}
-                            y={viewBox.cy}
-                            textAnchor="middle"
-                            dominantBaseline="middle"
+                            y={(viewBox.cy || 0) - 12}
+                            className="fill-muted-foreground"
                           >
-                            <tspan
-                              x={viewBox.cx}
-                              y={(viewBox.cy || 0) - 12}
-                              className="fill-muted-foreground"
-                            >
-                              {chartInnerTitle}
-                            </tspan>
-                            <tspan
-                              x={viewBox.cx}
-                              y={(viewBox.cy || 0) + 12}
-                              className="fill-foreground text-3xl font-semibold"
-                            >
-                              {totalVisitors.toLocaleString()}
-                            </tspan>
-                          </text>
-                        );
-                      }
-                    }}
-                  />
-                </Pie>
-              </PieChart>
-
+                            {chartInnerTitle}
+                          </tspan>
+                          <tspan
+                            x={viewBox.cx}
+                            y={(viewBox.cy || 0) + 12}
+                            className="fill-foreground text-3xl font-semibold"
+                          >
+                            {totalVisitors.toLocaleString()}
+                          </tspan>
+                        </text>
+                      );
+                    }
+                  }}
+                />
+              </Pie>
               <ChartLegend
                 content={({ payload }) => (
                   <div className="flex flex-col items-start gap-2 mt-2">
@@ -107,7 +104,9 @@ const PieChartCard: React.FC<PieChartCardProps> = ({
                   </div>
                 )}
               />
-            </>
+            </PieChart>
+
+            {/*  */}
           </ChartContainer>
         </CardContent>
       </Card>
