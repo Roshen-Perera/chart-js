@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ChartConfig, ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import { ChartConfig, ChartContainer, ChartLegend, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 
 import React from "react";
 import { PieChart, Pie, Label } from "recharts";
@@ -88,7 +88,7 @@ const PieChartCard: React.FC<PieChartCardProps> = ({
                           className="w-3 h-3 rounded-sm"
                           style={{ backgroundColor: entry.color }}
                         />
-                        <span className="text-sm text-muted-foreground">
+                        <span className="text-sm font-semibold text-muted-foreground">
                           {entry.value}
                         </span>
                       </div>
