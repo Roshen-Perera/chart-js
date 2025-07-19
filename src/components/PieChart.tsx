@@ -2,6 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChartConfig, ChartContainer, ChartLegend, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import { Calendar } from "lucide-react";
 
 import React from "react";
 import { PieChart, Pie, Label } from "recharts";
@@ -25,8 +26,9 @@ const PieChartCard: React.FC<PieChartCardProps> = ({
   return (
     <>
       <Card className="flex flex-col w-[300px]">
-        <CardHeader className="items-center pt-1">
-          <CardTitle>{chartTitle}</CardTitle>
+        <CardHeader className="flex items-center gap-2 p-0 pb-2 pl-4">
+          <CardTitle className="text-sm font-medium">{chartTitle}</CardTitle>
+          <Calendar className=" h-4 w-4" />
         </CardHeader>
         <CardContent className="flex-1">
           <ChartContainer

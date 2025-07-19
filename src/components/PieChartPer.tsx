@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChartConfig, ChartContainer, ChartLegend, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
-import { TrendingUp } from "lucide-react";
+import { TrendingUp, Users } from "lucide-react";
 
 import React from "react";
 import { PieChart, Pie, Label } from "recharts";
@@ -26,10 +26,14 @@ const PieChartCard: React.FC<PieChartCardProps> = ({
   return (
     <>
       <Card className="flex flex-col w-[300px]">
-        <CardHeader className="flex justify-between items-center pt-1">
-          <CardTitle>{chartTitle}</CardTitle>
+        <CardHeader className="flex justify-between items-center">
+          <div className="flex gap-4">
+            <CardTitle className="text-sm font-medium">{chartTitle}</CardTitle>
+            <Users className="h-4 w-4" />
+          </div>
+
           <div
-            className="flex items-center gap-2 text-sm font-medium rounded-lg pr-1 pl-1"
+            className="flex gap-2 text-sm font-medium rounded-lg pr-1 pl-1"
             style={{ backgroundColor: "#00996633" }}
           >
             <TrendingUp className="h-4 w-4" />
