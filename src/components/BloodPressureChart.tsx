@@ -1,13 +1,11 @@
 "use client";
 
-import { SquareActivity, TrendingUp } from "lucide-react";
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
+import { SquareActivity } from "lucide-react";
+import { Area, AreaChart, XAxis } from "recharts";
 
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
