@@ -20,6 +20,8 @@ import {
 
 export const description = "A simple area chart";
 
+
+
 const chartData = [
   { month: "January", desktop: 186 },
   { month: "February", desktop: 305 },
@@ -43,6 +45,7 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export function TemperatureChart() {
+  
   return (
     <Card className="flex flex-col w-[300px]">
       <CardHeader>

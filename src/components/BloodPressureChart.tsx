@@ -66,6 +66,7 @@ export function BloodPressureChart() {
             </defs>
             <XAxis
               dataKey="month"
+              tick={false}
               tickLine={false}
               axisLine={false}
               tickMargin={8}
