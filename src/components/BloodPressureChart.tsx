@@ -27,6 +27,12 @@ const chartData = [
   { month: "April", desktop: 73 },
   { month: "May", desktop: 209 },
   { month: "June", desktop: 214 },
+  { month: "January", desktop: 186 },
+  { month: "February", desktop: 305 },
+  { month: "March", desktop: 237 },
+  { month: "April", desktop: 73 },
+  { month: "May", desktop: 209 },
+  { month: "June", desktop: 214 },
 ];
 
 const chartConfig = {
@@ -36,14 +42,11 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export function ChartAreaDefault() {
+export function BloodPressureChart() {
   return (
-    <Card>
+    <Card className="flex flex-col w-[300px]">
       <CardHeader>
-        <CardTitle>Area Chart</CardTitle>
-        <CardDescription>
-          Showing total visitors for the last 6 months
-        </CardDescription>
+        <CardTitle>Blood Pressure</CardTitle>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -55,7 +58,12 @@ export function ChartAreaDefault() {
               right: 12,
             }}
           >
-            <CartesianGrid vertical={false} />
+            <defs>
+              <linearGradient id="aera1Gradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#2F0D68" />
+                <stop offset="100%" stopColor="#EFF9FF" />
+              </linearGradient>
+            </defs>
             <XAxis
               dataKey="month"
               tickLine={false}
@@ -70,25 +78,12 @@ export function ChartAreaDefault() {
             <Area
               dataKey="desktop"
               type="natural"
-              fill="var(--color-desktop)"
-              fillOpacity={0.4}
-              stroke="var(--color-desktop)"
+              fill="url(#aera1Gradient)"
+              stroke="white"
             />
           </AreaChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter>
-        <div className="flex w-full items-start gap-2 text-sm">
-          <div className="grid gap-2">
-            <div className="flex items-center gap-2 leading-none font-medium">
-              Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
-            </div>
-            <div className="text-muted-foreground flex items-center gap-2 leading-none">
-              January - June 2024
-            </div>
-          </div>
-        </div>
-      </CardFooter>
     </Card>
   );
 }

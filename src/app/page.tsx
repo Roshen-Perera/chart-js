@@ -1,7 +1,9 @@
 "use client";
-import ChartBarDefault from '@/components/BarChart';
+import { BloodPressureChart } from '@/components/BloodPressureChart';
+import HeartRateChart from '@/components/HeartRateChart';
 import PieChartCard from '@/components/PieChart'
 import PieChartCardPer from '@/components/PieChartPer';
+import { TemperatureChart } from '@/components/TemperatureChart';
 import { ChartConfig } from '@/components/ui/chart';
 import React from 'react'
 
@@ -100,9 +102,10 @@ const Home = () => {
           chartConfig={chartConfig3}
         />
       </div>
-      <div className="flex flex-col items-center">
-        <ChartBarDefault chartTitle="Heart Rate" />
-        
+      <div className="flex flex-row gap-4 justify-center flex-wrap p-4">
+        <HeartRateChart chartTitle="Heart Rate" />
+        <BloodPressureChart />
+        <TemperatureChart/>
       </div>
     </>
   );

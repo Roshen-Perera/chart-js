@@ -38,11 +38,11 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-interface ChartBarDefaultProps {
+interface HeartRateChartProps {
   chartTitle?: string;
 }
 
-const ChartBarDefault: React.FC<ChartBarDefaultProps> = ({ chartTitle }) => {
+const HeartRateChart: React.FC<HeartRateChartProps> = ({ chartTitle }) => {
   return (
     <Card className="flex flex-col w-[300px] p-4">
 
@@ -58,7 +58,7 @@ const ChartBarDefault: React.FC<ChartBarDefaultProps> = ({ chartTitle }) => {
         <ChartContainer config={chartConfig}>
           <BarChart accessibilityLayer data={chartData}>
             <defs>
-              <linearGradient id="desktopGradient" x1="0" y1="0" x2="0" y2="1">
+              <linearGradient id="barGradient" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor="#009966" />
                 <stop offset="100%" stopColor="#C9FFDD9C" />
               </linearGradient>
@@ -67,7 +67,7 @@ const ChartBarDefault: React.FC<ChartBarDefaultProps> = ({ chartTitle }) => {
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
-            <Bar dataKey="desktop" fill="url(#desktopGradient)" radius={10}  />{" "}
+            <Bar dataKey="desktop" fill="url(#barGradient)" radius={10}  />{" "}
           </BarChart>
         </ChartContainer>
       </CardContent>
@@ -75,4 +75,4 @@ const ChartBarDefault: React.FC<ChartBarDefaultProps> = ({ chartTitle }) => {
   );
 };
 
-export default ChartBarDefault;
+export default HeartRateChart;
