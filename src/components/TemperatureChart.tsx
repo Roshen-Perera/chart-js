@@ -52,6 +52,10 @@ export function TemperatureChart() {
         <CardTitle>Temperature</CardTitle>
       </CardHeader>
       <CardContent>
+        <div className="items-center justify-center mr-4">
+          <h3>98.6</h3>
+          <h5>°F</h5>
+        </div>
         <ChartContainer config={chartConfig}>
           <AreaChart
             accessibilityLayer
@@ -69,14 +73,13 @@ export function TemperatureChart() {
             </defs>
             <XAxis
               dataKey="month"
+              tick={false}
               tickLine={false}
               axisLine={false}
               tickMargin={8}
               tickFormatter={(value) => value.slice(0, 3)}
             />
-            <ChartTooltip
-              cursor={false}
-            />
+            <ChartTooltip cursor={false} />
             <Area
               dataKey="desktop"
               type="natural"

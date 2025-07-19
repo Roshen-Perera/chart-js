@@ -49,6 +49,10 @@ export function BloodPressureChart() {
         <CardTitle>Blood Pressure</CardTitle>
       </CardHeader>
       <CardContent>
+        <div className="items-center justify-center mr-4">
+          <h3>120/80</h3>
+          <h5>mmHg</h5>
+        </div>
         <ChartContainer config={chartConfig}>
           <AreaChart
             accessibilityLayer
