@@ -1,6 +1,6 @@
 "use client";
 
-import { TrendingUp } from "lucide-react";
+import { SquareActivity, TrendingUp } from "lucide-react";
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
 
 import {
@@ -44,9 +44,10 @@ const chartConfig = {
 
 export function BloodPressureChart() {
   return (
-    <Card className="flex flex-col w-[300px]">
-      <CardHeader>
-        <CardTitle>Blood Pressure</CardTitle>
+    <Card className="flex flex-col w-[300px] p-4">
+      <CardHeader className="flex items-center gap-2 p-0 pb-2">
+        <SquareActivity className="h-4 w-4" />
+        <CardTitle className="text-sm font-medium">Blood Pressure</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="items-center justify-center mr-4">

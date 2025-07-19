@@ -1,13 +1,11 @@
 "use client";
 
-import { TrendingUp } from "lucide-react";
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
+import { Thermometer } from "lucide-react";
+import { Area, AreaChart, XAxis } from "recharts";
 
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -15,7 +13,6 @@ import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
-  ChartTooltipContent,
 } from "@/components/ui/chart";
 
 export const description = "A simple area chart";
@@ -47,9 +44,10 @@ const chartConfig = {
 export function TemperatureChart() {
   
   return (
-    <Card className="flex flex-col w-[300px]">
-      <CardHeader>
-        <CardTitle>Temperature</CardTitle>
+    <Card className="flex flex-col w-[300px] p-4">
+      <CardHeader className="flex items-center gap-2 p-0 pb-2">
+        <Thermometer className="h-4 w-4" />
+        <CardTitle className="text-sm font-medium">Temperature</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="items-center justify-center mr-4">
